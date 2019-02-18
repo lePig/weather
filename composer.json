@@ -15,5 +15,12 @@
         "psr-4": {
             "Lepig\\Weather\\": "src"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Lepig\\Weather\\ServiceProvider"
+            ]
+        }
     }
 }
