@@ -8,8 +8,17 @@
 ```shell
 $ composer require lepig/weather -vvv
 ```
+## 配置
+在使用此组件之前，你需要去[高德开放平台](https://lbs.amap.com/dev/index)注册帐号，并申请应用，获取应用的API Key.
 
 ## Usage
+```php
+use Lepig\Weather\Weather;
+
+$key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx';
+
+$weather = new Weather($key);
+```
 
 TODO
 
