@@ -1,0 +1,17 @@
+{
+    "name": "lepig\/weather",
+    "description": "A weather SDK.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lepig",
+            "email": "lepig@qq.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Lepig\\Weather\\": "src"
+        }
+    }
+}
