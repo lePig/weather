@@ -3,6 +3,8 @@
 namespace Lepig\Weather;
 
 use GuzzleHttp\Client;
+use Lepig\Weather\Exceptions\InvalidArgumentException;
+use Lepig\Weather\Exceptions\HttpException;
 
 class Weather
 {
@@ -46,6 +48,14 @@ class Weather
     {
         $url = 'https://restapi.amap.com/v3/weather/weatherInfo';
 
+        if (! in_array(strtolower($type), ['base', 'all'])) {
+            throw new InvalidArgumentException('无效的类型值: ' . $type);
+        }
+
+        if (! in_array(strtolower($format), ['json', 'xml'])) {
+            throw new InvalidArgumentException('无效的响应格式: ' . $format);
+        }
+
         $query = array_filter([ //过滤参数值等同于空的键
             'key'        => $this->key,
             'city'       => $city,
@@ -53,12 +63,16 @@ class Weather
             'output'     => $format,
         ]);
 
-        $response = $this->getHttpClient()->get($url, [
-            'query' => $query,
-        ])->getBody()->getContents();
+        try {
+            $response = $this->getHttpClient()->get($url, [
+                'query' => $query,
+            ])->getBody()->getContents();
 
 
-        return 'json' === $format ? \json_decode($response, true) : $response;
+            return 'json' === $format ? \json_decode($response, true) : $response;
+        } catch(\Exception $e){
+            throw new HttpException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 }
 
