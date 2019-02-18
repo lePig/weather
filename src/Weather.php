@@ -11,7 +11,7 @@ class Weather
     private $key; //高德地图申请的key
     private $guzzleOptions = [];
 
-    public function __construct($key = 'd68ca78ded6b4d5bbc0eb55caa1e27a3')
+    public function __construct($key)
     {
         $this->key = $key;
     }
@@ -44,7 +44,7 @@ class Weather
      * @param  string     $format [description]
      * @return [type]             [description]
      */
-    public function getWeather($city = '341103', string $type = 'base', string $format = 'json')
+    public function getWeather($city, string $type = 'base', string $format = 'json')
     {
         $url = 'https://restapi.amap.com/v3/weather/weatherInfo';
 
