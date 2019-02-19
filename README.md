@@ -1,5 +1,7 @@
 <h1 align="center"> weather </h1>
 
+[![Build Status](https://travis-ci.org/lePig/weather.svg?branch=master)](https://travis-ci.org/lePig/weather)
+
 <p align="center"> A weather SDK..</p>
 
 
