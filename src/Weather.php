@@ -74,6 +74,30 @@ class Weather
             throw new HttpException($e->getMessage(), $e->getCode(), $e);
         }
     }
+
+    /**
+     * 获取实时天气
+     * @date   2019-02-19
+     * @param  [type]     $city   [description]
+     * @param  string     $format [description]
+     * @return [type]             [description]
+     */
+    public function getLiveWeather($city, string $format = 'json')
+    {
+        return $this->getWeather($city, 'base', $format);
+    }
+
+    /**
+     * 获取未来几天天气预报
+     * @date   2019-02-19
+     * @param  [type]     $city   [description]
+     * @param  string     $format [description]
+     * @return [type]             [description]
+     */
+    public function getForecastsWeather($city, string $format = 'json')
+    {
+        return $this->getWeather($city, 'all', $format);
+    }
 }
 
 

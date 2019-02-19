@@ -118,6 +118,19 @@ $weather->getWeather('滁州', 'all');
 }
 ```
 
+## 独立的方法调用
+
+### 获取实时天气
+```php
+$weather->getLiveWeather('滁州');
+```
+
+### 获取未来几天天气预报
+```php
+$weather->getForecastsWeather('滁州');
+```
+
+
 ## 参数说明
 ```php
 array | string   getWeather(string $city, string $type = 'base', string $format = 'json')
